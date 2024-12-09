@@ -1,22 +1,21 @@
 const fs = require('node:fs')
 
-const exists = fs.existsSync("arquivo.txt")
-
-if (exists) {
-    fs.readFile('./arquivo.txt', 'utf-8', (error, data) => {
-        if (error) {
-            console.log('Error ao ler arquivo: ', error.message)
-        }
-    
-        console.log(data)
-    })
-} else {
-    console.log("O arquivo não existe")
-}
-
+const fileName = 'arquivo.txt'
+// Modo síncrono de leitura de arquivos
 // try {
-//     const data = fs.readFileSync("./arquivo.txt", "utf-8")
+//     const data = fs.readFileSync(fileName, 'utf-8')
+//     console.log('Conteúdo do arquivo.')
 //     console.log(data)
-// } catch (error) {
-//     console.log("Error ao ler o arquivo: ", error.message)
+// } catch (error){
+//     console.log("Erro ao ler o arquivo inserido: ", error.message)
 // }
+
+// Modo assíncrono de leitura de arquivos
+fs.readFile(fileName, "utf-8", (error, data) => {
+    if (error) {
+        console.log("Erro ao ler o arquivo inserido: ", error.message)
+        return
+    }
+
+    console.log(data)
+})
