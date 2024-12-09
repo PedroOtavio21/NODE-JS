@@ -20,7 +20,7 @@ deleteFile();
 ```
 
 ### Passo a passo de execução
-- [] Pesquisar sobre boas práticas de utilização de módulos no Node.js (IA)
+- [x] Pesquisar sobre boas práticas de utilização de módulos no Node.js (IA)
 - [] Criar escopo de código para cada função
 - [] Realizar testes
 - [] Implementar módulos em um arquivo "index" ou "main" com o código acima 
