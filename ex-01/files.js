@@ -1,68 +1,45 @@
 // Criação de arquivo de texto
-const fs = require('node:fs')
+import fs from 'node:fs'
 
-function createFile(nameFile, content){
-    const exists = fs.existsSync(nameFile)
+export function createFile(content){
+    fs.writeFile('meuarquivo.txt', content, 'utf-8', (error) => {
+        if (error) {
+            console.log('Erro ao criar arquivo: ', error.message)
+            return
+        }
 
-    if (exists) {
-        console.log('O arquivo que você deseja criar já existe!')
-    } else {
-        fs.writeFile('./' + nameFile, content, 'utf-8', (error) => {
-            if (error) {
-                console.log("Erro ao criar arquivo com conteúdo desejado.", error.message)
-                return
-            }
-    
-            console.log('O arquivo foi criado com sucesso!')
-        })
-    }
+        console.log('Arquivo criado com sucesso.')
+    })
 }
 
-function showFile(nameFile){
-    const exists = fs.existsSync(nameFile)
+export function showFile(){
+    fs.readFile('meuarquivo.txt', 'utf-8', (error, content) => {
+        if (error) {
+            console.log('Erro ao realizar leitura de arquivo: ', error.message)
+            return
+        }
 
-    if (exists) {
-        fs.readFile(nameFile, 'utf-8', (error, data) => {
-            if (error) {
-                console.log('Erro ao ler arquivo desejado: ', error.message)
-                return
-            }
-
-            console.log(data)
-        })
-    } else {
-        console.log('O arquivo desejado não encontrado ou não existe para realizar leitura.')
-    }
+        console.log(content)
+    })
 }
 
-function updateFile(nameFile, newContent){
-    const exists = fs.existsSync(nameFile)
+export function updateFile(newContent){
+    fs.writeFile('meuarquivo.txt', newContent, 'utf-8', (error) => {
+        if (error) {
+            console.log('Erro ao atualizar conteúdo de arquivo.')
+            return
+        } 
 
-    if (exists) {
-        fs.writeFile(nameFile, newContent, 'utf-8', (error) => {
-            if (error) {
-                console.log('Erro ao reescrever o arquivo já existente', error.message)
-                return
-            }
-
-            console.log('O arquivo desejado foi atualizado com sucesso.')
-        })
-    } else {
-        console.log('O arquivo desejado não existe. Não será possível reescrevê-lo.')
-    }
+        console.log('Arquivo atualizado com sucesso!')
+    })
 }
 
-function deleteFile(nameFile){
-    const exists = fs.existsSync(nameFile)
+export function deleteFile(nameFile){
+    fs.unlink('meuarquivo.txt', (error) => {
+        if (error) {
+            console.log('Erro ao deletar arquivo desejado!')
+        }
 
-    if (exists) {
-        fs.unlink(nameFile, (error) => {
-            if (error) {
-                console.log('Erro ao excluir o arquivo desejado: ', error.message)
-                return
-            }
-
-            console.log('Arquivo excluído com sucesso!')
-        })
-    }
+        console.log('Arquivo excluído com sucesso!')
+    })
 }
