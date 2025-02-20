@@ -1,45 +1,52 @@
-import fs from 'node:fs'
+import fs from "node:fs"
 
-// Criação de Arquivo
-export function createFile(content){
-    fs.writeFile('meuarquivo.txt', content, (err) => {
-        if (err) {
-            console.log('Erro ao criar um arquivo com o texto informado: ', err.message)
-            return
-        }
-        console.log('Arquivo criado com sucesso.')
+export function createFile(text) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile("meuarquivo.txt", text, (error) => {
+      if (error) {
+        reject("Erro ao escrever arquivo: ", error.message)
+      } else {
+        resolve()
+      }
     })
+  })
 }
 
-// Reescrita de arquivo
-export function updateFile(content){
-    fs.writeFile('meuarquivo.txt', content, (err) => {
-        if (err) {
-            console.log('Erro ao reescrever texto em arquivo: ', err.message)
-            return
-        }
-        console.log('Arquivo reescrito com sucesso.')
+export function showFile() {
+  return new Promise((resolve, reject) => {
+    fs.readFile("meuarquivo.txt", "utf-8", (error, text) => {
+      if (error) {
+        reject("Erro ao ler arquivo: ", error.message)
+      } else {
+        console.log(text)
+        resolve()
+      }
     })
+  })
 }
 
-// Leitura de arquivo
-export function showFile(){
-    fs.readFile("meuarquivo.txt", 'utf-8', (err, data) => {
-        if (err) {
-            console.log('Erro ao ler conteúdo de arquivo: ', err.message)
-            return
-        }
-        console.log(data)
+export function updateFile(newText) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile("meuarquivo.txt", newText, (error) => {
+      if (error) {
+        reject("Erro ao modificar arquivo: ", error.message)
+      } else {
+        resolve()
+      }
     })
+  })
 }
 
-// Exclusão de arquivo
-export function deleteFile(){
-    fs.unlink("meuarquivo.txt", (err) => {
-        if (err) {
-            console.log('Erro ao excluir arquivo desejado: ', err.message)
-            return
-        }
-        console.log('Arquivo excluído com sucesso.')
+export function deleteFile() {
+  return new Promise((resolve, reject) => {
+    fs.unlink("meuarquivo.txt", (error) => {
+      if (error) {
+        console.log("Erro ao excluir o arquivo: ", error.message)
+        resolve()
+      } else {
+        console.log("Arquivo excluído com sucesso!")
+        resolve()
+      }
     })
+  })
 }
