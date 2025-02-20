@@ -2,10 +2,10 @@
 Nesta aula, conheceremos um módulo nativo do Node.js, utilizado para leitura e escrita de arquivos
 
 **Nota**: Em algumas funções a seguir, foram utilizadas inicialmente seu formato *síncrono*, porém o recomendado 
-seria utilizar o formato padrão dos métodos, que são *assíncronos*! 
+seria utilizar o **formato padrão** dos métodos, que são *assíncronos*! 
 
 ### Escrita em arquivos
-Para escrever um arquivo de texto simples podemos usar o método “writeFileSync” ou writeFile. 
+Para escrever um arquivo de texto simples podemos usar o método “writeFileSync” ou **writeFile**. 
 Primeiramente, crie um arquivo chamado “write-file.js” como usado na aula:
 
 ```js
@@ -20,7 +20,7 @@ try {
 }
 ```
 
-Note que, se você realizar o mesmo procedimento em um arquivo existente, ele irá sobrescrever o mesmo, 
+Note que, se você realizar o mesmo procedimento em um **arquivo existente**, ele irá **sobrescrever o mesmo**, 
 com o novo conteúdo desejado! Além do mais, a função acima executa a escrita em arquivos de forma síncrona, como citado 
 anteriormente.
 
@@ -42,7 +42,7 @@ try {
 Apesar de ser possível fazer a leitura e escrita de forma síncrona, é comum utilizarmos a forma assíncrona:
 
 
-Note que no método síncrono, era utilizado um tratamento de erro try/catch. Porém aqui, o erro é passado como 
+Note que no método síncrono, era utilizado um **tratamento de erro try/catch**. Porém aqui, o erro é passado como 
 parâmetro da função
 
 ```js
@@ -76,7 +76,7 @@ fs.readFile(filename, "utf-8", (error, data) => {
 ```
 
 ### Existencia de arquivos
-Com o “fs” também é possível utilizar vários outros métodos, como o exists para verificar a existência do arquivo:
+Com o “fs” também é possível utilizar vários outros métodos, como o **exists** para **verificar a existência** do arquivo:
 
 ```js
 const fs = require("node:fs")
@@ -119,7 +119,7 @@ fs.rename("arquivo.txt", "arquivo.csv", (error) => {
 ```
 
 ### Deletar arquivos existentes
-E o unlink, que serve para excluir um arquivo:
+E o **unlink**, que serve **para excluir** um arquivo:
 
 ```js
 const fs = require("node:fs")

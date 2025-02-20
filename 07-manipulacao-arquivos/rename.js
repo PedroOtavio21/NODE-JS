@@ -1,10 +1,10 @@
-const fs = require("node:fs")
+const fs = require('node:fs')
 
-fs.rename("arquivo.txt", "arquivo.csv", (error) => {
-  if (error) {
-    console.log("Erro ao renomear o arquivo: ", error.message)
+// Método utilizado para renomear arquivo
+fs.rename('arquivo.txt', 'arquivo.csv', (err) => {
+  if (err) {
+    console.log('Erro ao renomear arquivo: ', err.message)
     return
   }
-
-  console.log("Arquivo renomeado com sucesso!")
+  console.log('Arquivo renomeado com sucesso!')
 })

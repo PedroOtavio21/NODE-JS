@@ -1,21 +1,20 @@
-// Modo síncrono de escrita de arquivos
-const fs = require('node:fs')
+const fs = require("node:fs")
 
+// Escrita em arquivo de forma sincrona
 // try {
-//   fs.writeFileSync("arquivo.txt", "Olá, mundo!", "utf-8")
-//   console.log("Arquivo criado com sucesso.")
-// } catch (error) {
-//   console.log("Erro ao escrever o arquivo: ", error.message)
+//   fs.writeFileSync('./arquivo.txt', 'Olá, Mundo!', 'utf-8')
+//   console.log('Arquivo criado com sucesso!')
+// } catch (error){
+//   console.log('Erro ao realizar escrita em arquivo: ', error.message)
 // }
 
-// Modo síncrono de escrita de arquivos
-const content = "Conteúdo do novo arquivo assíncrono"
+// Escrita em arquivo de forma assíncrona
+const content = 'Conteúdo para arquivo assíncrono'
 
-fs.writeFile("./arquivo.txt", content, "utf-8", (error) => {
-  if (error) {
-    console.log("Erro ao escrever o arquivo: ", error.message)
+fs.writeFile('./arquivo.txt', content, 'utf-8', (err) => {
+  if (err) {
+    console.log('Erro ao escrever conteúdo em arquivo: ', err.message)
     return
   }
-
-  console.log("Arquivo criado com sucesso de forma assíncrona.")
+  console.log('Arquivo escrito com sucesso de forma assíncrona.')
 })
