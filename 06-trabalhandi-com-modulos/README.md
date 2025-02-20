@@ -3,41 +3,43 @@ Nesta aula, serão revisadas as duas maneiras de se trabalhar com módulos no Ja
 
 Primeiramente, inicie um projeto npm no repositório com:
 
-```npm
+```
+<!-- Inicialização rápida de um projeto com node -->
 npm init -y
 ```
 
 O formato padrão de módulos no JavaScript é a utilização de CommonJS:
 ```js
-// Módulo
+// sum.js
 function sum(a, b){
     return a + b
 }
 
+// Exportação com commonjs
 module.exports = sum
 
-// Principal
+// main.js
 const sum = require('./sum')
 console.log(sum(5, 3)) // 8
 ```
 
-Agora, é possível trabalhar com ESModules pelo node, em versões mais recentes da Linguagem, porém é necessário utilizar uma nomenclatura diferente no arquivo
+Agora, é possível trabalhar com **ESModules pelo node**, em versões mais recentes da Linguagem, porém é necessário utilizar uma nomenclatura diferente no arquivo
 
 ```js
-// Módulo ESM
+// subtract.mjs
 function subtract(x, y){
     return a - b
 }
 
 export default subtract
 
-// Principal
-import subtract from "./subtract.jsm"
+// main.js
+import subtract from "./subtract.mjs"
 
 console.log(subtract(5, 3))
 ```
 
-Mas para trabalhar com módulos ESM no Node, por não ser o formato padrão, é necessário mudar a configuração do tipo de importação no package.json:
+Porém, para trabalhar com módulos ESM no Node, por não ser o formato padrão, é necessário mudar a configuração do tipo de importação **dentro do package.json**:
 
 ```json
 // ...
