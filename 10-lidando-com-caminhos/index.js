@@ -1,30 +1,31 @@
 const path = require('node:path')
 
-/*
-Tal método recebe como parâmetro um conjunto de valores, 
-que serão usados em conjunto para formar o caminho desejado!
-*/
+// Método responsável para "formar" um caminho, a partir dos dados desejados
+// const fullPath = path.join('src', 'scripts', 'main.js')
 
 const dir = 'src'
 const file = 'app.js'
 
-// Variável bastante utilizada pelo node: __dirname
-// Responsável por passar o caminho completo do diretório que que o arquivo .js se encontra
+// __dirname = Mostra o caminho completo até o diretório em que você se encontra
+// __filename = Simililar ao dirname, porém incrementando o arquivo ao final do caminho
 const fullPath = path.join(__dirname, dir, file)
-// console.log(fullPath)
+// const relativePath = path.join('.', dir, file) // Passa o caminho relativo ao qual o código está sendo executado
+
+console.log(fullPath)
+// console.log(relativePath)
 
 const relativePath = '../arquivos/relatorio.pdf'
-
-// Similar ao uso do join, porém resolve o caminho completo passado como parâmetro
 const absolutePath = path.resolve(__dirname, relativePath)
 
-// Algo silimar ao __dirname, porém utilizando o caminho atual do arquivo
-console.log(absolutePath)
+// O resolve acaba sendo similar ao método join, porém ele resolve o caminho inserido com o uso das '/' ou '.'
+console.log(absolutePath) 
 
-// Esse método retorna o último elemento do caminho do diretório, ou seja, o arquivo
 const fileName = path.basename(relativePath)
+
+// Esse método retorna o nome do arquivo ao final do caminho do diretório escolhido
 console.log(fileName)
 
-// A função retorna a extensão do último arquivo! .pdf, .js, ext
-const ext = path.extname(absolutePath)
-console.log(ext)
+const extension = path.extname(relativePath)
+
+// Esse método retorna a extensão utilizada ao final do arquivo escolhido 
+console.log(extension)
