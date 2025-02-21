@@ -1,17 +1,17 @@
 const os = require('node:os')
 
-// Retorna o tipo de sistema operacional que você utiliza
-const platforma = os.platform() 
-console.log("Plataforma do SO:", platforma)
+// Retorna o tipo de sistema do usuário (Windows, Linux, etc)
+const platform = os.platform()
+console.log('Plataforma do SO: ', platform)
 
-// Retorna a arquitetura do computador
-const arquitetura = os.arch() 
-console.log("Arquitetura do SO:", arquitetura)
+// Retorna a arquitetura do sistema operacional do usuário
+const arch = os.arch()
+console.log('Arquitetura do SO: ', arch)
 
-// Retorna qual o processador de sua máquina (Quantidade de valores indicam seus núcleos)
-const processadores = os.cpus() 
-console.log("CPUs presentes no computador:", processadores[0])
+// Demonstra as principais informações da CPU, além da quantidade de núcleos do processador
+const cpus = os.cpus()
+console.log('Informações da CPU: ', cpus)
 
-// Retorna a quantidade total de memória RAM presente no computador em Bytes
-const memoria = os.totalmem()
-console.log("Total de memória RAM do pc:", memoria / 1024 / 1024 / 1024, "GB")
+// Retorna o total de memória utilizada da memória RAM
+const memory = os.totalmem()
+console.log('Total de memória do PC: ', memory / 1024 / 1024 / 1024, 'GB')
